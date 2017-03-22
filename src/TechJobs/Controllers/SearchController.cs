@@ -12,9 +12,11 @@ namespace TechJobs.Controllers
             ViewBag.title = "Search";
             return View();
         }
+        public List<Dictionary<string, string>> Results(string searchType, string searchTerm)
+        {
+            if
+        }
 
-        // TODO #1 - Create a Results action method to process 
-        // search request and display results
 
     }
 }
