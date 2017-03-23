@@ -12,11 +12,23 @@ namespace TechJobs.Controllers
             ViewBag.title = "Search";
             return View();
         }
-        public List<Dictionary<string, string>> Results(string searchType, string searchTerm)
+        public IActionResult Results(string searchType, string searchTerm)
         {
-            if
+            ViewBag.columns = ListController.columnChoices;
+            ViewBag.title = "Search";
+            {
+                if (searchType == "all")
+                {
+                    ViewBag.Jobs = JobData.FindByValue(searchTerm);
+                }
+                else
+                {
+                    ViewBag.Jobs = JobData.FindByColumnAndValue(searchType, searchTerm);
+                }
+                return View("~/Views/Search/Index.cshtml");
+            }
         }
-
-
     }
 }
+
+
